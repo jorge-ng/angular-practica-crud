@@ -1,0 +1,18 @@
+.btn {
+    background-color: #005cbb;
+    color: #fff;
+    padding: 0 24px;
+    height: 40px;
+    display: inline-flex;
+    border-radius: 40px;
+    align-items: center;
+    font-weight: 500;
+    text-decoration: none;
+    border: none;
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+
+    &:hover, &:focus {
+        background-color: #00304e;
+    }
+}
