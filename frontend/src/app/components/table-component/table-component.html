@@ -10,16 +10,18 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>Ford</td>
-                <td>Focus</td>
-                <td>10</td>
-                <td>
-                    <button appButton>Editar</button>
-                    <button appButton>Eliminar</button>
-                </td>
-            </tr>
+            @for (car of cars; track car.id) {
+                <tr>
+                    <td>{{ car.id }}</td>
+                    <td>{{ car.brand }}</td>
+                    <td>{{ car.model }}</td>
+                    <td>{{ car.total }}</td>
+                    <td>
+                        <button appButton>Editar</button>
+                        <button appButton>Eliminar</button>
+                    </td>
+                </tr>
+            }
         </tbody>
     </table>
 </div>
