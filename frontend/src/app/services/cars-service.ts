@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Cars } from '../interfaces/cars';
+import { Cars } from '../interfaces/cars-list';
+import { CarById } from '../interfaces/car-by-id';
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +19,8 @@ export class CarsService {
     );
   }
 
-  getCarById(id: string): Observable<Cars> {
-    return this.http.get<Cars>(
+  getCarById(id: string): Observable<CarById> {
+    return this.http.get<CarById>(
       `${this.apiUrl}/cars/${id}`
     );
   }
