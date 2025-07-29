@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Button } from '../../directive/button';
 import { CarsService } from '../../services/cars-service';
-import { Cars } from '../../interfaces/cars';
+import { Cars } from '../../interfaces/cars-list';
 
 @Component({
   selector: 'app-table-component',
@@ -20,7 +20,7 @@ export class TableComponent implements OnInit {
     
   ngOnInit(): void {
     this.carsService.getCars().subscribe(data => {
-        this.cars = data;
+      this.cars = data;
     });
   }
 
