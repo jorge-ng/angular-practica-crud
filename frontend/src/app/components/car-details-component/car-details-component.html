@@ -1,0 +1,45 @@
+<div class="car">
+    <div class="car__info">
+        <div>
+            <p>Marca: {{ cars.brand }}</p>
+            <p>Modelo: {{ cars.model }}</p>
+            <p>ID: {{ cars.id }}</p>
+            <p>Total: {{ cars.total }}</p>
+        </div>
+        <div>
+            <button appButton>Editar</button>
+            <button appButton>Eliminar</button>
+        </div>
+    </div>
+    
+    <div class="car__detail">
+        <table>
+            <thead>
+                <tr>
+                    <th>Fecha de registro</th>
+                    <th>Año de fabricación</th>
+                    <th>Precio</th>
+                    <th>Kilometraje</th>
+                    <th>Matricula</th>
+                    <th>Disponibilidad</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @for (item of cars.carDetails; track $index) {
+                    <tr>
+                        <td>{{ item.registrationDate | date:"dd MMM yyyy" }}</td>
+                        <td>{{ item.manufactureYear }}</td>
+                        <td>{{ item.price | currency : item.currency : 'symbol'}}</td>
+                        <td>{{ item.mileage | number:'1.2-2' }}  {{ item.mileage | carCondition }}</td>
+                        <td>{{ item.licensePlate }}</td>
+                        <td>{{ item.availability ? 'Disponible': 'No disponible' }}</td>                    
+                    </tr>
+                }
+                
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
