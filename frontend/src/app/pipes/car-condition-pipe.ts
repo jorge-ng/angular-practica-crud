@@ -9,12 +9,12 @@ export class CarConditionPipe implements PipeTransform {
     return null;
   }*/
 
-  transform(value: string): string {
+  transform(value: number): string {
     let tag = "";
 
-    if(value == "0") {
+    if(value == 0) {
       tag = "Nuevo";
-    } else if(value < "100" ) {
+    } else if(value < 100 ) {
       tag = "Km 0";
     }else {
       tag = "Ocasión";
