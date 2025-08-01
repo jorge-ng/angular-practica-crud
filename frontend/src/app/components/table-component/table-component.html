@@ -1,4 +1,5 @@
 <div class="table-container">
+    <button appButton routerLink="/create">Añadir elemento</button>
     <table>
         <thead>
             <tr>
@@ -12,7 +13,7 @@
         <tbody>
             @for (car of cars; track car.id) {
                 <tr>
-                    <td>{{ car.id }}</td>
+                    <td><a href="/cars/{{ car.id }}">{{ car.id }}</a></td>
                     <td>{{ car.brand }}</td>
                     <td>{{ car.model }}</td>
                     <td>{{ car.total }}</td>

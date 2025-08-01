@@ -17,9 +17,9 @@ export class BrandsService {
     )
   }
 
-  getModelByBrand(id: string): Observable<string[]> {
+  getModelByBrand(brandId: string): Observable<string[]> {
     return this.http.get<string[]>(
-      `${this.apiUrl}/brands/${id}/models`
+      `${this.apiUrl}/brands/${brandId}/models`
     )
   }
 }

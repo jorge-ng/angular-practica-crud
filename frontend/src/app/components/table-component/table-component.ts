@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Button } from '../../directive/button';
 import { CarsService } from '../../services/cars-service';
 import { Cars } from '../../interfaces/cars-list';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-table-component',
-  imports: [Button],
+  imports: [Button, RouterLink],
   templateUrl: './table-component.html',
   styleUrl: './table-component.scss'
 })

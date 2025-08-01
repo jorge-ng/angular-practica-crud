@@ -1,17 +1,17 @@
 export interface CarById {
-    brand: string,
-    model: string,
-    id: string,
-    total: number
+    brand: string;
+    model: string;
+    id: string;
+    total: number;
     carDetails: CarDetails[];
 }
 
 export interface CarDetails {
-    availability: boolean,
-    currency: string,
-    licensePlate: string,
-    manuFactureYear: number,
-    mileage: number,
-    price: number,
-    refistrationDate: string
+    availability: boolean;
+    currency: string;
+    licensePlate: string;
+    manufactureYear: number;
+    mileage: number;
+    price: number;
+    registrationDate: string;
 }

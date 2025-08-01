@@ -1,0 +1,99 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <label for="brand">Marca</label>
+    <select name="brand" #brand (change)="onSelected(brand.value)"  id="brand" formControlName="brand">
+
+        @for(brand of brands; track brand) {
+            <option value="{{ brand }}">{{ brand }}</option>
+        }
+    </select>
+
+    <label for="model">Modelo</label>
+    <select name="model" id="model" formControlName="model">
+        @for(model of models; track model) {
+            <option value="{{ model }}">{{ model }}</option>
+        }
+    </select>
+
+    <div formArrayName="carDetails">
+        @for(item of details.controls; track $index; let i = $index) {
+            
+            <div [formGroupName]="i">
+                <div>
+                    <label for="registrationDate-{{ i }}">Fecha de registro</label>
+                    <input id="registrationDate-{{ i }}" type="date" formControlName="registrationDate" />
+                </div>
+                <div>
+                    <label for="mileage-{{ i }}">Kilometraje</label>
+                    <input id="mileage-{{ i }}" type="number" formControlName="mileage" />
+                </div>
+                <div>
+                    <label for="currency-{{ i }}">Moneda</label>
+                    <select name="currency" id="currency-{{ i }}" formControlName="currency">
+                        <option value="EUR">EUR</option>
+                        <option value="GBP">GBP</option>
+                        <option value="CHF">CHF</option>
+                        <option value="SEK">SEK</option>
+                        <option value="NOK">NOK</option>
+                        <option value="DKK">DKK</option>
+                        <option value="PLN">PLN</option>
+                        <option value="CZK">CZK</option>
+                        <option value="HUF">HUF</option>
+                        <option value="RON">RON</option>
+                        <option value="BGN">BGN</option>
+                        <option value="HRK">HRK</option>
+                        <option value="ARS">ARS</option>
+                        <option value="BRL">BRL</option>
+                        <option value="CLP">CLP</option>
+                        <option value="COP">COP</option>
+                        <option value="PEN">PEN</option>
+                        <option value="UYU">UYU</option>
+                        <option value="PYG">PYG</option>
+                        <option value="BOB">BOB</option>
+                        <option value="VES">VES</option>
+                        <option value="USD">USD</option>
+                        <option value="CAD">CAD</option>
+                        <option value="MXN">MXN</option>
+                        <option value="JPY">JPY</option>
+                        <option value="CNY">CNY</option>
+                        <option value="INR">INR</option>
+                        <option value="KRW">KRW</option>
+                        <option value="SGD">SGD</option>
+                        <option value="HKD">HKD</option>
+                        <option value="MYR">MYR</option>
+                        <option value="IDR">IDR</option>
+                        <option value="THB">THB</option>
+                        <option value="VND">VND</option>
+                        <option value="PKR">PKR</option>
+                        <option value="AUD">AUD</option>
+                        <option value="NZD">NZD</option>
+                        <option value="ZAR">ZAR</option>
+                        <option value="EGP">EGP</option>
+                        <option value="NGN">NGN</option>
+                        <option value="KES">KES</option>
+                        <option value="GHS">GHS</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="price-{{ i }}">Precio</label>
+                    <input id="price-{{ i }}" type="number" formControlName="price" />
+                </div>
+                <div>
+                    <label for="manufactureYear-{{ i }}">Año de fabricación</label>
+                    <input id="manufactureYear-{{ i }}" type="number" formControlName="manufactureYear" />
+                </div>
+                <div>
+                    <label for="availability-{{ i }}">Disponibilidad</label>
+                    <input id="availability-{{ i }}" type="checkbox" formControlName="availability" />
+                </div>
+                <div>
+                    <label for="licensePlate-{{ i }}">Matrícula</label>
+                    <input id="licensePlate-{{ i }}" type="text" formControlName="licensePlate" />
+                </div>
+            </div>
+        }
+    </div>
+    <button type="submit">Crea coche</button>
+</form>
+<button type="button" (click)="createCarDetail()">Añade detalle</button>
+
+<p>Form Value: {{ profileForm.value | json }}</p>

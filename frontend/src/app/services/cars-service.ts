@@ -25,8 +25,8 @@ export class CarsService {
     );
   }
 
-  createCar(car: Cars): Observable<Cars> {
-    return this.http.post<Cars>(
+  createCar(car: Partial<CarById>): Observable<CarById> {
+    return this.http.post<CarById>(
       `${this.apiUrl}/cars`,
       car
     );
